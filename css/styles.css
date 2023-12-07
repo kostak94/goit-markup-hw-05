@@ -34,8 +34,8 @@ img {
 }
 
 .modal-overlay.is-open {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   position: fixed;
@@ -44,21 +44,37 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   width: 408px;
-  height: 584px;
+  min-height: 584px;
   border-radius: 4px;
   background-color: #fcfcfc;
-  padding: 24px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 72px 24px 24px 24px;
+}
+
+.form-item-container {
+  margin-bottom: 8px;
+}
+.input-container {
+  position: relative;
 }
 
 .order-service-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
+  /* gap: 8px; */
 }
 
 .modal-form-text {
@@ -69,23 +85,39 @@ img {
   line-height: 24px;
   letter-spacing: 0.32px;
   margin-bottom: 16px;
-  margin-top: 24px;
 }
 
 .modal-form-label {
+  display: block;
+  margin-bottom: 4px;
   color: #8e8f99;
   font-size: 12px;
   font-weight: 400;
-  line-height: 14px;
-  letter-spacing: 0.48px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
 }
 
 .modal-form-input {
+  background-color: transparent;
   width: 100%;
   height: 40px;
   border-radius: 4px;
   border: 1px solid rgba(46, 47, 66, 0.4);
-  outline: none;
+  outline: transparent;
+  padding-left: 38px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form-input:focus {
+  border-color: #4d5ae5;
+}
+
+.input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-form-textarea {
@@ -104,33 +136,36 @@ img {
   letter-spacing: 0.48px;
 }
 
-.close-btn-wrapper {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .close-btn-icon {
-  fill: #2e2f42;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.close-btn-icon:active {
+.close-btn-icon:hover,
+.close-btn-icon:focus {
   fill: #ffffff;
 }
 
 .close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  border: 1px solid #0000001a;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: #e7e9fc;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
 }
 
-.close-btn:active {
+.close-btn:hover,
+.close-btn:focus {
   background-color: #404bbf;
+  border: none;
 }
 
 .privacy-police-container {
@@ -648,17 +683,21 @@ img {
 }
 
 .subscribe-input {
-  color: #fff;
-  max-width: 264px;
-  padding: 8px 16px;
-  background-color: #2e2f42;
+  color: #ffffff;
+  font-size: 12px;
+  width: 264px;
+  height: 40px;
+  padding-left: 16px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  background-color: transparent;
   border-radius: 4px;
-  border: 1px solid #fff;
-  outline: none;
+  border: 1px solid #ffffff;
+  outline: transparent;
 }
 
 .subscribe-input::placeholder {
-  color: #fff;
+  color: #ffffff;
   font-size: 12px;
   font-weight: 400;
   line-height: 24px;
@@ -670,9 +709,8 @@ img {
   min-width: 165px;
   color: #fff;
   text-align: center;
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
-  /* font-style: normal; */
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0.64px;
@@ -680,12 +718,14 @@ img {
   padding: 8px 24px;
   justify-content: center;
   align-items: center;
-  gap: 16px;
   border-radius: 4px;
   background-color: #4d5ae5;
   border: #4d5ae5;
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.icon-subscribe {
+  margin-left: 16px;
 }
 
 .subscribe-btn:hover {
