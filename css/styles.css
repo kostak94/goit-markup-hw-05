@@ -1,7 +1,7 @@
 body {
   font-family: "Roboto", sans-serif;
   color: #434455;
-  max-width: 1440px;
+  /* max-width: 1440px; */
   margin: 0 auto;
   background-color: #ffffff;
 }
@@ -383,6 +383,7 @@ img {
     ),
     url(../images/people-office1.jpg);
   padding: 188px 0;
+  margin: 0 auto;
 }
 
 .container.solution {
