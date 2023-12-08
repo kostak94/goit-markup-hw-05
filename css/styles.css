@@ -31,6 +31,7 @@ img {
 }
 .modal-overlay {
   display: none;
+  width: 100%;
 }
 
 .modal-overlay.is-open {
@@ -238,7 +239,7 @@ img {
   fill: transparent;
 }
 
-.privacy-police-text > .privacy-link {
+.privacy-link {
   color: #4d5ae5;
 }
 
