@@ -34,8 +34,8 @@ img {
 }
 
 .modal-overlay.is-open {
-  height: 100%;
   width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   position: fixed;
@@ -108,6 +108,7 @@ img {
   background-color: transparent;
   width: 100%;
   height: 40px;
+  font-size: 16px;
   border-radius: 4px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   outline: transparent;
@@ -195,7 +196,7 @@ img {
   margin-bottom: 24px;
 }
 
-.privacy-checkbox {
+.visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -208,11 +209,11 @@ img {
   overflow: hidden;
 }
 
-.privacy-checkbox:checked {
+/* .privacy-input:checked .checkbox-span {
   background-color: #404bbf;
   border: none;
   fill: #f4f4fd;
-}
+} */
 
 .privacy-police-text {
   color: #8e8f99;
@@ -233,6 +234,7 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  margin-right: 8px;
   fill: transparent;
 }
 
